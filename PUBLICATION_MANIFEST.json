@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-05",
+  "title": "AVL library management console system",
+  "runtime_verified_for_publication": false,
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "281d106249e47674fca3f05cf04793d47a1bf7d64636850864f0e5903bae639c",
+      "bytes": 573
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "bytes": 1056
+    },
+    {
+      "path": "main.cpp",
+      "sha256": "2cbb2152521c82c54d223e6f0c1c8ba3e191df0056a6f5a5f06e0cc06ac33d43",
+      "bytes": 3388
+    },
+    {
+      "path": "README.md",
+      "sha256": "f9b6284e3914fe4949969d6a68cbc1c8a6b7f6acc1e311d3761a776f0dcb0266",
+      "bytes": 1511
+    }
+  ]
+}
