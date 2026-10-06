@@ -3,6 +3,7 @@
 // so search and insert stay efficient (O(log n)) even as the catalog grows.
 
 #include <iostream>
+#include <limits>
 #include <string>
 using namespace std;
 
@@ -95,6 +96,11 @@ void inOrder(Node* root) {
     inOrder(root->right);
 }
 
+void destroy(Node* root) {
+    if (!root) return;
+    destroy(root->left); destroy(root->right); delete root;
+}
+
 int main() {
     Node* root = nullptr;
     int choice;
@@ -102,13 +108,19 @@ int main() {
 
     while (true) {
         cout << "\n1. Add Book\n2. Search Book\n3. Display Books\n4. Exit\nEnter choice: ";
-        cin >> choice;
-        cin.ignore();
+        if (!(cin >> choice)) {
+            if (cin.eof()) break;
+            cerr << "Invalid input: enter a menu number." << endl;
+            cin.clear(); cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         if (choice == 1) {
             cout << "Enter ISBN: "; getline(cin, ISBN);
             cout << "Enter Title: "; getline(cin, title);
             cout << "Enter Author: "; getline(cin, author);
+            if (ISBN.empty() || title.empty() || author.empty()) { cerr << "Book fields cannot be empty." << endl; continue; }
             root = insert(root, {ISBN, title, author});
         } else if (choice == 2) {
             cout << "Enter ISBN to search: "; getline(cin, ISBN);
@@ -119,5 +131,6 @@ int main() {
             inOrder(root);
         } else if (choice == 4) break;
     }
+    destroy(root);
     return 0;
 }

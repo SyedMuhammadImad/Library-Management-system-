@@ -1,45 +1,10 @@
-# Library Management System (AVL Tree)
+# AVL library management console system
 
-A console-based C++ library catalog that stores books in a **self-balancing AVL tree**,
-keyed by ISBN, so inserts and searches stay fast (`O(log n)`) even as the catalog scales.
+Academic console project. Compile `main.cpp` with a C++17 compiler and run it. The menu implements the operations shown in the source. Invalid menu input and end-of-input are handled without looping forever.
 
-## Features
-
-- Add a book (ISBN, title, author)
-- Search for a book by ISBN
-- Display all books in sorted order (in-order traversal)
-- Automatic tree rebalancing on insert (left, right, left-right, right-left rotations)
-
-## Data Structure
-
-- **AVL Tree** implemented from scratch, keyed on ISBN
-- Each node tracks its height for O(1) balance-factor checks
-- Rebalancing handled via standard `rotateLeft` / `rotateRight` operations
-
-## How to Run
-
-```bash
-g++ main.cpp -o library_management_system
-./library_management_system
+```sh
+g++ -std=c++17 -Wall -Wextra -pedantic main.cpp -o app
+./app
 ```
 
-## Menu Options
-
-```
-1. Add Book
-2. Search Book
-3. Display Books
-4. Exit
-```
-
-## Tech
-
-- C++
-- Custom AVL tree (no STL container used for storage)
-
-
-## Publication copy
-
-Published 5 October 2026 at the owner's request. This is a sanitized source snapshot. Original local Git history and original files remain unchanged. Pictures, videos, binary archives, private/runtime data, dependency folders and credentials are excluded. Notebook outputs, attachments and incidental metadata are removed. Documents are text-only extracts. Media references and redacted configuration may need replacements before running. No claim of successful rerun, production readiness, sole authorship or independent validation is implied.
-
-
+See `VERIFICATION.json` for functional and boundary checks. Data lives in memory for this exercise; persistence is outside its assignment scope. No credentials or media are included.
